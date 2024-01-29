@@ -54,27 +54,24 @@ void _SIM900_print(unsigned const char *ptr)
 
 int a;
 
-void MakeCall(a)
+void BlinkLED()
+{
+    RB1=1;
+    __delay_ms(200);
+    RB1=0;
+    __delay_ms(200);
+    RB1=1;
+    __delay_ms(200);
+    RB1=0;
+    __delay_ms(200);
+    RB1=1;
+    __delay_ms(200);
+    RB1=0;
+}
+void MakeCall()
 {   
-    if (a==1)
-    {
    _SIM900_print("ATD6986951309;\r\n");
-    }
-    else if (a==2)
-    {
-   _SIM900_print("ATD6986951309;\r\n");
-    }
-    RB1=1;
-    __delay_ms(200);
-    RB1=0;
-    __delay_ms(200);
-    RB1=1;
-    __delay_ms(200);
-    RB1=0;
-    __delay_ms(200);
-    RB1=1;
-    __delay_ms(200);
-    RB1=0;
+   BlinkLED();
 }
 
 int main()
