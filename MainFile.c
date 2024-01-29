@@ -54,7 +54,7 @@ void _SIM900_print(unsigned const char *ptr)
 
 int a;
 
-void SendSMS(a)
+void MakeCall(a)
 {   
     if (a==1)
     {
@@ -92,14 +92,14 @@ int main()
     while(1) 
         if (RD1==1)       
         {
-            SendSMS(1);
+            MakeCall(1);
             RB3=1;
             __delay_ms(1000);
             RB3=0;
         }
         else if (RD3==1)
         {
-            SendSMS(2);
+            MakeCall(2);
             RB4=1;
             __delay_ms(1000);
             RB4=0;
