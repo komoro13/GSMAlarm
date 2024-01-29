@@ -89,14 +89,14 @@ int main()
     while(1) 
         if (RD1==1)       
         {
-            MakeCall(1);
+            MakeCall();
             RB3=1;
             __delay_ms(1000);
             RB3=0;
         }
         else if (RD3==1)
         {
-            MakeCall(2);
+            MakeCall();
             RB4=1;
             __delay_ms(1000);
             RB4=0;
