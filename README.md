@@ -37,6 +37,3 @@ This project is a home alarm system that uses a PIC microcontroller and SIM900 G
 - Place sensor boards in different rooms and link them to the main board.
 - Adjust sensitivity and alarm settings as needed.
 - Receive automatic phone calls when motion is detected and listen to the environment.
-
-## Contributing
-Contributions to the project are welcome. This can include adding new features, optimizing the design, or fixing bugs. Please read the contributing guidelines before making a contribution.
