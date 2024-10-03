@@ -1,4 +1,4 @@
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\sources\\c99\\pic\\__eeprom.c"
+# 1 "firmware.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\sources\\c99\\pic\\__eeprom.c" 2
+# 1 "firmware.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1899,176 +1899,267 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\sources\\c99\\pic\\__eeprom.c" 2
+# 1 "firmware.c" 2
+
+# 1 "./config.h" 1
+# 13 "./config.h"
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+# 2 "firmware.c" 2
+
+# 1 "./LCD.h" 1
+# 21 "./LCD.h"
+void LCD_command(unsigned char cmd);
+void LCD_write_char(unsigned char ch);
+void LCD_Write_String(char* Str);
+void LCD_Set_Cursor(unsigned char ROW, unsigned char COL);
+void LCD_init();
+# 3 "firmware.c" 2
+
+# 1 "./keypad_4x4.h" 1
+# 13 "./keypad_4x4.h"
+char read_keypad_char();
+char *read_keypad(int mode);
+# 4 "firmware.c" 2
+
+# 1 "./SIM900A.h" 1
+# 24 "./SIM900A.h"
+void initialize_SIM900A(void);
+void _SIM900A_putch(char bt);
+char _SIM900A_getch();
+void SIM900A_send_string(char* st_pt);
+void _SIM900A_print(unsigned const char *ptr);
+# 5 "firmware.c" 2
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 421 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 26 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\string.h" 2 3
+
+void *memcpy (void *restrict, const void *restrict, size_t);
+void *memmove (void *, const void *, size_t);
+void *memset (void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void *memchr (const void *, int, size_t);
+
+char *strcpy (char *restrict, const char *restrict);
+char *strncpy (char *restrict, const char *restrict, size_t);
+
+char *strcat (char *restrict, const char *restrict);
+char *strncat (char *restrict, const char *restrict, size_t);
+
+int strcmp (const char *, const char *);
+int strncmp (const char *, const char *, size_t);
+
+int strcoll (const char *, const char *);
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+char *strchr (const char *, int);
+char *strrchr (const char *, int);
+
+size_t strcspn (const char *, const char *);
+size_t strspn (const char *, const char *);
+char *strpbrk (const char *, const char *);
+char *strstr (const char *, const char *);
+char *strtok (char *restrict, const char *restrict);
+
+size_t strlen (const char *);
+
+char *strerror (int);
 
 
 
 
-void
-__eecpymem(volatile unsigned char *to, __eeprom unsigned char * from, unsigned char size)
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+int strerror_r (int, char *, size_t);
+char *stpcpy(char *restrict, const char *restrict);
+char *stpncpy(char *restrict, const char *restrict, size_t);
+size_t strnlen (const char *, size_t);
+char *strdup (const char *);
+char *strndup (const char *, size_t);
+char *strsignal(int);
+char *strerror_l (int, locale_t);
+int strcoll_l (const char *, const char *, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+
+
+
+
+void *memccpy (void *restrict, const void *restrict, int, size_t);
+# 7 "firmware.c" 2
+
+
+
+char *concatenate(const char *s1, const char *s2)
 {
- volatile unsigned char *cp = to;
-
- while (EECON1bits.WR) continue;
- EEADR = (unsigned char)from;
- while(size--) {
-  while (EECON1bits.WR) continue;
-
-  EECON1 &= 0x7F;
-
-  EECON1bits.RD = 1;
-  *cp++ = EEDATA;
-  ++EEADR;
- }
-# 36 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\sources\\c99\\pic\\__eeprom.c"
+    char *result = malloc(strlen(s1) + strlen(s2) + 1);
+    strcpy(result, s1);
+    strcpy(result, s2);
+    return result;
 }
 
-void
-__memcpyee(__eeprom unsigned char * to, const unsigned char *from, unsigned char size)
+
+
+
+void BlinkMainLED()
 {
- const unsigned char *ptr =from;
+    RB1=1;
+    _delay((unsigned long)((200)*(20000000/4000.0)));
+    RB1=0;
+    _delay((unsigned long)((200)*(20000000/4000.0)));
+    RB1=1;
+    _delay((unsigned long)((200)*(20000000/4000.0)));
+    RB1=0;
+    _delay((unsigned long)((200)*(20000000/4000.0)));
+    RB1=1;
+    _delay((unsigned long)((200)*(20000000/4000.0)));
+    RB1=0;
+}
+void blink_sensor_led(int sensor)
+{
+    if (sensor == 1)
+    {
+        RB3=1;
+        _delay((unsigned long)((1000)*(20000000/4000.0)));
+        RB3=0;
+        return;
+    }
+    RB3=1;
+    _delay((unsigned long)((1000)*(20000000/4000.0)));
+    RB3=0;
 
- while (EECON1bits.WR) continue;
- EEADR = (unsigned char)to - 1U;
-
- EECON1 &= 0x7F;
-
- while(size--) {
-  while (EECON1bits.WR) {
-   continue;
-  }
-  EEDATA = *ptr++;
-  ++EEADR;
-  STATUSbits.CARRY = 0;
-  if (INTCONbits.GIE) {
-   STATUSbits.CARRY = 1;
-  }
-  INTCONbits.GIE = 0;
-  EECON1bits.WREN = 1;
-  EECON2 = 0x55;
-  EECON2 = 0xAA;
-  EECON1bits.WR = 1;
-  EECON1bits.WREN = 0;
-  if (STATUSbits.CARRY) {
-   INTCONbits.GIE = 1;
-  }
- }
-# 101 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\sources\\c99\\pic\\__eeprom.c"
+}
+void sensor_leds_off()
+{
+    RB3=0;
+    RB4=0;
+}
+void boot_led_blink()
+{
+    RB3 = 1;
+    RB4 = 1;
+    _delay((unsigned long)((1000)*(20000000/4000.0)));
+    RB3 = 0;
+    RB4 = 0;
 }
 
-unsigned char
-__eetoc(__eeprom void *addr)
+
+
+
+void MakeCall()
 {
- unsigned char data;
- __eecpymem((unsigned char *) &data,addr,1);
- return data;
+   _SIM900A_print("ATD6986951309;\r\n");
+   BlinkMainLED();
 }
 
-unsigned int
-__eetoi(__eeprom void *addr)
+
+
+
+
+void start()
 {
- unsigned int data;
- __eecpymem((unsigned char *) &data,addr,2);
- return data;
+    while(1)
+        if (RD1==1)
+        {
+            blink_sensor_led(1);
+            MakeCall();
+
+        }
+        else if (RD3==1)
+        {
+            MakeCall();
+            blink_sensor_led(2);
+        }
+        else
+        {
+            sensor_leds_off();
+        }
+
+}
+void sleep()
+{
+    while(RD5!=1);
+    return;
 }
 
-#pragma warning push
-#pragma warning disable 2040
-__uint24
-__eetom(__eeprom void *addr)
-{
- __uint24 data;
- __eecpymem((unsigned char *) &data,addr,3);
- return data;
-}
-#pragma warning pop
 
-unsigned long
-__eetol(__eeprom void *addr)
-{
- unsigned long data;
- __eecpymem((unsigned char *) &data,addr,4);
- return data;
-}
 
-#pragma warning push
-#pragma warning disable 1516
-unsigned long long
-__eetoo(__eeprom void *addr)
+int save_phone(char *phone)
 {
- unsigned long long data;
- __eecpymem((unsigned char *) &data,addr,8);
- return data;
+    return 0;
 }
-#pragma warning pop
-
-unsigned char
-__ctoee(__eeprom void *addr, unsigned char data)
+char *read_saved_phone()
 {
- __memcpyee(addr,(unsigned char *) &data,1);
- return data;
+    char *phone;
+    return phone;
 }
-
-unsigned int
-__itoee(__eeprom void *addr, unsigned int data)
+void settings()
 {
- __memcpyee(addr,(unsigned char *) &data,2);
- return data;
-}
+    LCD_Write_String("Settings\nSave phone number(1) Read saved number(2)");
+    if (read_keypad(1) == 1)
+    {
+        char *phone;
+        LCD_Write_String("Enter your phone");
+        phone = read_keypad(2);
+        if (save_phone(phone) == 0)
+            LCD_Write_String("Phone saved successfully");
+        else
+            LCD_Write_String("Error saving phone");
+        return;
+    }
+    char *saved_number;
+    if (read_saved_phone() == "err")
+    {
+        LCD_Write_String("Error reading number");
+        return;
+    }
+    if (read_saved_phone() == "")
+    {
+        LCD_Write_String("No number saved");
+        return;
+    }
+    saved_number = read_saved_phone();
 
-#pragma warning push
-#pragma warning disable 2040
-__uint24
-__mtoee(__eeprom void *addr, __uint24 data)
-{
- __memcpyee(addr,(unsigned char *) &data,3);
- return data;
-}
-#pragma warning pop
 
-unsigned long
-__ltoee(__eeprom void *addr, unsigned long data)
-{
- __memcpyee(addr,(unsigned char *) &data,4);
- return data;
+
+    if (read_keypad(1) == 2)
+        LCD_Write_String(concatenate("Saved phone number\n", saved_number));
+
 }
 
-#pragma warning push
-#pragma warning disable 1516
-unsigned long long
-__otoee(__eeprom void *addr, unsigned long long data)
-{
- __memcpyee(addr,(unsigned char *) &data,8);
- return data;
-}
-#pragma warning pop
 
-float
-__eetoft(__eeprom void *addr)
+
+void init_trisio()
 {
- float data;
- __eecpymem((unsigned char *) &data,addr,3);
- return data;
+
+    TRISD = 0b00001010;
+    TRISB = 0b00000000;
 }
 
-double
-__eetofl(__eeprom void *addr)
+void main_menu()
 {
- double data;
- __eecpymem((unsigned char *) &data,addr,4);
- return data;
+    LCD_Write_String("GSM 9ALARM\n Start (1) Sleep(2) Settings(3)");
+    if (read_keypad(1) == 1)
+        start();
+    else if(read_keypad(1) == 2)
+        sleep();
+    else if(read_keypad(1) == 3)
+        settings();
+
 }
 
-float
-__fttoee(__eeprom void *addr, float data)
+void boot()
 {
- __memcpyee(addr,(unsigned char *) &data,3);
- return data;
-}
-
-double
-__fltoee(__eeprom void *addr, double data)
-{
- __memcpyee(addr,(unsigned char *) &data,4);
- return data;
+   initialize_SIM900A();
+   init_trisio();
+   boot_led_blink();
 }

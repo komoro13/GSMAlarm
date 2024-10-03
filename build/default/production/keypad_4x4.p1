@@ -1,1 +1,79 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"4 keypad_4x4.c
+[; ;keypad_4x4.c: 4: char read_keypad_char()
+[v _read_keypad_char `(uc ~T0 @X0 1 ef ]
+"5
+[; ;keypad_4x4.c: 5: {
+{
+[e :U _read_keypad_char ]
+[f ]
+"6
+[; ;keypad_4x4.c: 6:     char ch;
+[v _ch `uc ~T0 @X0 1 a ]
+"8
+[; ;keypad_4x4.c: 8:     return ch;
+[e ) _ch ]
+[e $UE 1  ]
+"9
+[; ;keypad_4x4.c: 9: }
+[e :UE 1 ]
+}
+"10
+[; ;keypad_4x4.c: 10: char *read_keypad(int mode)
+[v _read_keypad `(*uc ~T0 @X0 1 ef1`i ]
+"11
+[; ;keypad_4x4.c: 11: {
+{
+[e :U _read_keypad ]
+"10
+[; ;keypad_4x4.c: 10: char *read_keypad(int mode)
+[v _mode `i ~T0 @X0 1 r1 ]
+"11
+[; ;keypad_4x4.c: 11: {
+[f ]
+"12
+[; ;keypad_4x4.c: 12:     char *buffer;
+[v _buffer `*uc ~T0 @X0 1 a ]
+"13
+[; ;keypad_4x4.c: 13:     if (mode == 2)
+[e $ ! == _mode -> 2 `i 3  ]
+"14
+[; ;keypad_4x4.c: 14:     {
+{
+"15
+[; ;keypad_4x4.c: 15:         while(1)
+[e :U 5 ]
+"16
+[; ;keypad_4x4.c: 16:         {
+{
+"17
+[; ;keypad_4x4.c: 17:             buffer = read_keypad_char();
+[e = _buffer -> ( _read_keypad_char ..  `*uc ]
+"18
+[; ;keypad_4x4.c: 18:             buffer++;
+[e ++ _buffer * -> -> 1 `i `x -> -> # *U _buffer `i `x ]
+"19
+[; ;keypad_4x4.c: 19:         }
+}
+[e :U 4 ]
+[e $U 5  ]
+[e :U 6 ]
+"20
+[; ;keypad_4x4.c: 20:         return buffer;
+[e ) _buffer ]
+[e $UE 2  ]
+"21
+[; ;keypad_4x4.c: 21:     }
+}
+[e :U 3 ]
+"22
+[; ;keypad_4x4.c: 22:     buffer = read_keypad_char();
+[e = _buffer -> ( _read_keypad_char ..  `*uc ]
+"23
+[; ;keypad_4x4.c: 23:     return buffer;
+[e ) _buffer ]
+[e $UE 2  ]
+"24
+[; ;keypad_4x4.c: 24: }
+[e :UE 2 ]
+}

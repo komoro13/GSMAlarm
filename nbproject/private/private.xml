@@ -5,8 +5,14 @@
         <group name="Projects"/>
         <group name="Rita's gift"/>
         <group>
+            <file>file:/C:/Users/tbogi/Desktop/Embeded%20Projects/Board.X/main.c</file>
+            <file>file:/C:/Users/tbogi/Desktop/Embeded%20Projects/Board.X/LCD.c</file>
+            <file>file:/C:/Users/tbogi/Desktop/Embeded%20Projects/Board.X/firmware.c</file>
+            <file>file:/C:/Users/tbogi/Desktop/Embeded%20Projects/Board.X/LCD.h</file>
+            <file>file:/C:/Users/tbogi/Desktop/Embeded%20Projects/Board.X/UART.h</file>
+            <file>file:/C:/Users/tbogi/Desktop/Embeded%20Projects/Board.X/SIM900A.c</file>
+            <file>file:/C:/Users/tbogi/Desktop/Embeded%20Projects/Board.X/SIM900A.h</file>
             <file>file:/C:/Users/tbogi/Desktop/Embeded%20Projects/Board.X/keypad_4x4.c</file>
-            <file>file:/C:/Users/tbogi/Desktop/Embeded%20Projects/Board.X/MainFile.c</file>
         </group>
     </open-files>
 </project-private>

@@ -1,23 +1,49 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"22 ./LCD.h
-[; ;./LCD.h: 22: void LCD_write_char(unsigned char ch);
-[v _LCD_write_char `(v ~T0 @X0 0 ef1`uc ]
-"21
-[; ;./LCD.h: 21: void LCD_command(unsigned char cmd);
-[v _LCD_command `(v ~T0 @X0 0 ef1`uc ]
-"216 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h: 216: extern volatile unsigned char PORTB __attribute__((address(0x006)));
-[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"2723
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h: 2723: extern volatile __bit RC5 __attribute__((address(0x3D)));
-[v _RC5 `Vb ~T0 @X0 0 e@61 ]
-"2729
-[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h: 2729: extern volatile __bit RC7 __attribute__((address(0x3F)));
-[v _RC7 `Vb ~T0 @X0 0 e@63 ]
-[v F164 `(v ~T0 @X0 1 tf1`ul ]
-"20 C:\Program Files\Microchip\xc8\v2.45\pic\include\builtins.h
-[v __delay `JF164 ~T0 @X0 0 e ]
-[p i __delay ]
+"2981 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h: 2981: extern volatile __bit TRISC6 __attribute__((address(0x43E)));
+[v _TRISC6 `Vb ~T0 @X0 0 e@1086 ]
+"2984
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h: 2984: extern volatile __bit TRISC7 __attribute__((address(0x43F)));
+[v _TRISC7 `Vb ~T0 @X0 0 e@1087 ]
+"2080
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h: 2080: extern volatile unsigned char SPBRG __attribute__((address(0x099)));
+[v _SPBRG `Vuc ~T0 @X0 0 e@153 ]
+"2420
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h: 2420: extern volatile __bit BRGH __attribute__((address(0x4C2)));
+[v _BRGH `Vb ~T0 @X0 0 e@1218 ]
+"2846
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h: 2846: extern volatile __bit SYNC __attribute__((address(0x4C4)));
+[v _SYNC `Vb ~T0 @X0 0 e@1220 ]
+"2816
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h: 2816: extern volatile __bit SPEN __attribute__((address(0xC7)));
+[v _SPEN `Vb ~T0 @X0 0 e@199 ]
+"3035
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h: 3035: extern volatile __bit TXEN __attribute__((address(0x4C5)));
+[v _TXEN `Vb ~T0 @X0 0 e@1221 ]
+"2519
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h: 2519: extern volatile __bit CREN __attribute__((address(0xC4)));
+[v _CREN `Vb ~T0 @X0 0 e@196 ]
+"3026
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h: 3026: extern volatile __bit TX9 __attribute__((address(0x4C6)));
+[v _TX9 `Vb ~T0 @X0 0 e@1222 ]
+"2798
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h: 2798: extern volatile __bit RX9 __attribute__((address(0xC6)));
+[v _RX9 `Vb ~T0 @X0 0 e@198 ]
+"3041
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h: 3041: extern volatile __bit TXIF __attribute__((address(0x64)));
+[v _TXIF `Vb ~T0 @X0 0 e@100 ]
+"1059
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h: 1059: extern volatile unsigned char TXREG __attribute__((address(0x019)));
+[v _TXREG `Vuc ~T0 @X0 0 e@25 ]
+"2618
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h: 2618: extern volatile __bit OERR __attribute__((address(0xC1)));
+[v _OERR `Vb ~T0 @X0 0 e@193 ]
+"1066
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h: 1066: extern volatile unsigned char RCREG __attribute__((address(0x01A)));
+[v _RCREG `Vuc ~T0 @X0 0 e@26 ]
+"2747
+[; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h: 2747: extern volatile __bit RCIF __attribute__((address(0x65)));
+[v _RCIF `Vb ~T0 @X0 0 e@101 ]
 "54 C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h
 [; ;C:\Program Files\Microchip\xc8\v2.45\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -214,196 +240,183 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x WRT  =  OFF         ]
 "20
 [p x CP  =  OFF          ]
-"9 LCD.c
-[; ;LCD.c: 9: void LCD_Write_String(char* Str)
-[v _LCD_Write_String `(v ~T0 @X0 1 ef1`*uc ]
-"10
-[; ;LCD.c: 10: {
+"6 SIM900A.c
+[; ;SIM900A.c: 6: void initialize_SIM900A(void)
+[v _initialize_SIM900A `(v ~T0 @X0 1 ef ]
+"7
+[; ;SIM900A.c: 7: {
 {
-[e :U _LCD_Write_String ]
-"9
-[; ;LCD.c: 9: void LCD_Write_String(char* Str)
-[v _Str `*uc ~T0 @X0 1 r1 ]
-"10
-[; ;LCD.c: 10: {
+[e :U _initialize_SIM900A ]
 [f ]
+"8
+[; ;SIM900A.c: 8:     TRISC6 = 0;
+[e = _TRISC6 -> -> 0 `i `b ]
+"9
+[; ;SIM900A.c: 9:     TRISC7 = 1;
+[e = _TRISC7 -> -> 1 `i `b ]
+"10
+[; ;SIM900A.c: 10:     SPBRG =((20000000/16)/9600)-1;
+[e = _SPBRG -> - / / -> 20000000 `l -> -> 16 `i `l -> -> 9600 `i `l -> -> 1 `i `l `uc ]
 "11
-[; ;LCD.c: 11:   for(int i=0; Str[i]!='\0'; i++)
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $U 103  ]
-[e :U 100 ]
+[; ;SIM900A.c: 11:     BRGH = 1;
+[e = _BRGH -> -> 1 `i `b ]
 "12
-[; ;LCD.c: 12:     LCD_write_char(Str[i]);
-[e ( _LCD_write_char (1 -> *U + _Str * -> _i `x -> -> # *U _Str `i `x `uc ]
-[e ++ _i -> 1 `i ]
-[e :U 103 ]
-[e $ != -> *U + _Str * -> _i `x -> -> # *U _Str `i `x `ui -> 0 `ui 100  ]
-[e :U 101 ]
-}
+[; ;SIM900A.c: 12:     SYNC = 0;
+[e = _SYNC -> -> 0 `i `b ]
 "13
-[; ;LCD.c: 13: }
+[; ;SIM900A.c: 13:     SPEN = 1;
+[e = _SPEN -> -> 1 `i `b ]
+"14
+[; ;SIM900A.c: 14:     TXEN=1;
+[e = _TXEN -> -> 1 `i `b ]
+"15
+[; ;SIM900A.c: 15:     CREN=1;
+[e = _CREN -> -> 1 `i `b ]
+"16
+[; ;SIM900A.c: 16:     TX9=0;
+[e = _TX9 -> -> 0 `i `b ]
+"17
+[; ;SIM900A.c: 17:     RX9=0;
+[e = _RX9 -> -> 0 `i `b ]
+"19
+[; ;SIM900A.c: 19: }
 [e :UE 99 ]
 }
-"14
-[; ;LCD.c: 14: void LCD_Set_Cursor(unsigned char ROW, unsigned char COL)
-[v _LCD_Set_Cursor `(v ~T0 @X0 1 ef2`uc`uc ]
-"15
-[; ;LCD.c: 15: {
-{
-[e :U _LCD_Set_Cursor ]
-"14
-[; ;LCD.c: 14: void LCD_Set_Cursor(unsigned char ROW, unsigned char COL)
-[v _ROW `uc ~T0 @X0 1 r1 ]
-[v _COL `uc ~T0 @X0 1 r2 ]
-"15
-[; ;LCD.c: 15: {
-[f ]
-"16
-[; ;LCD.c: 16:   switch(ROW)
-[e $U 106  ]
-"17
-[; ;LCD.c: 17:   {
-{
-"18
-[; ;LCD.c: 18:     case 2:
-[e :U 107 ]
-"19
-[; ;LCD.c: 19:       LCD_command(0xC0 + COL-1);
-[e ( _LCD_command (1 -> - + -> 192 `i -> _COL `i -> 1 `i `uc ]
 "20
-[; ;LCD.c: 20:       break;
-[e $U 105  ]
+[; ;SIM900A.c: 20: void _SIM900A_putch(char bt)
+[v __SIM900A_putch `(v ~T0 @X0 1 ef1`uc ]
 "21
-[; ;LCD.c: 21:     case 3:
-[e :U 108 ]
+[; ;SIM900A.c: 21: {
+{
+[e :U __SIM900A_putch ]
+"20
+[; ;SIM900A.c: 20: void _SIM900A_putch(char bt)
+[v _bt `uc ~T0 @X0 1 r1 ]
+"21
+[; ;SIM900A.c: 21: {
+[f ]
 "22
-[; ;LCD.c: 22:       LCD_command(0x94 + COL-1);
-[e ( _LCD_command (1 -> - + -> 148 `i -> _COL `i -> 1 `i `uc ]
+[; ;SIM900A.c: 22:     while(!TXIF);
+[e $U 101  ]
+[e :U 102 ]
+[e :U 101 ]
+[e $ ! _TXIF 102  ]
+[e :U 103 ]
 "23
-[; ;LCD.c: 23:       break;
-[e $U 105  ]
+[; ;SIM900A.c: 23:     TXREG=bt;
+[e = _TXREG -> _bt `uc ]
 "24
-[; ;LCD.c: 24:     case 4:
-[e :U 109 ]
-"25
-[; ;LCD.c: 25:       LCD_command(0xD4 + COL-1);
-[e ( _LCD_command (1 -> - + -> 212 `i -> _COL `i -> 1 `i `uc ]
-"26
-[; ;LCD.c: 26:       break;
-[e $U 105  ]
-"28
-[; ;LCD.c: 28:     default:
-[e :U 110 ]
-"29
-[; ;LCD.c: 29:       LCD_command(0x80 + COL-1);
-[e ( _LCD_command (1 -> - + -> 128 `i -> _COL `i -> 1 `i `uc ]
-"30
-[; ;LCD.c: 30:   }
+[; ;SIM900A.c: 24: }
+[e :UE 100 ]
 }
-[e $U 105  ]
-[e :U 106 ]
-[e [\ -> _ROW `i , $ -> 2 `i 107
- , $ -> 3 `i 108
- , $ -> 4 `i 109
- 110 ]
-[e :U 105 ]
+"25
+[; ;SIM900A.c: 25: char _SIM900A_getch()
+[v __SIM900A_getch `(uc ~T0 @X0 1 ef ]
+"26
+[; ;SIM900A.c: 26: {
+{
+[e :U __SIM900A_getch ]
+[f ]
+"27
+[; ;SIM900A.c: 27:     if(OERR)
+[e $ ! _OERR 105  ]
+"28
+[; ;SIM900A.c: 28:     {
+{
+"29
+[; ;SIM900A.c: 29:         CREN=0;
+[e = _CREN -> -> 0 `i `b ]
+"30
+[; ;SIM900A.c: 30:         CREN=1;
+[e = _CREN -> -> 1 `i `b ]
 "31
-[; ;LCD.c: 31: }
+[; ;SIM900A.c: 31:     }
+}
+[e :U 105 ]
+"32
+[; ;SIM900A.c: 32:     while(!RCIF)
+[e $U 106  ]
+[e :U 107 ]
+"33
+[; ;SIM900A.c: 33:     {
+{
+"34
+[; ;SIM900A.c: 34:         return RCREG;
+[e ) -> _RCREG `uc ]
+[e $UE 104  ]
+"35
+[; ;SIM900A.c: 35:     }
+}
+[e :U 106 ]
+"32
+[; ;SIM900A.c: 32:     while(!RCIF)
+[e $ ! _RCIF 107  ]
+[e :U 108 ]
+"36
+[; ;SIM900A.c: 36: }
 [e :UE 104 ]
 }
-"34
-[; ;LCD.c: 34: void LCD_command(unsigned char cmd)
-[v _LCD_command `(v ~T0 @X0 1 ef1`uc ]
-"35
-[; ;LCD.c: 35: {
-{
-[e :U _LCD_command ]
-"34
-[; ;LCD.c: 34: void LCD_command(unsigned char cmd)
-[v _cmd `uc ~T0 @X0 1 r1 ]
-"35
-[; ;LCD.c: 35: {
-[f ]
-"36
-[; ;LCD.c: 36:     PORTB = cmd;
-[e = _PORTB _cmd ]
-"37
-[; ;LCD.c: 37:     RC5 = 0;
-[e = _RC5 -> -> 0 `i `b ]
 "38
-[; ;LCD.c: 38:     RC7 = 1;
-[e = _RC7 -> -> 1 `i `b ]
+[; ;SIM900A.c: 38: void SIM900A_send_string(char* st_pt)
+[v _SIM900A_send_string `(v ~T0 @X0 1 ef1`*uc ]
 "39
-[; ;LCD.c: 39:     _delay((unsigned long)((4)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;SIM900A.c: 39: {
+{
+[e :U _SIM900A_send_string ]
+"38
+[; ;SIM900A.c: 38: void SIM900A_send_string(char* st_pt)
+[v _st_pt `*uc ~T0 @X0 1 r1 ]
+"39
+[; ;SIM900A.c: 39: {
+[f ]
 "40
-[; ;LCD.c: 40:     RC7 = 0;
-[e = _RC7 -> -> 0 `i `b ]
+[; ;SIM900A.c: 40:     while(*st_pt)
+[e $U 110  ]
+[e :U 111 ]
+"41
+[; ;SIM900A.c: 41:         _SIM900A_putch(*st_pt++);
+[e ( __SIM900A_putch (1 *U ++ _st_pt * -> -> 1 `i `x -> -> # *U _st_pt `i `x ]
+[e :U 110 ]
+"40
+[; ;SIM900A.c: 40:     while(*st_pt)
+[e $ != -> *U _st_pt `i -> 0 `i 111  ]
+[e :U 112 ]
 "42
-[; ;LCD.c: 42: }
-[e :UE 111 ]
+[; ;SIM900A.c: 42: }
+[e :UE 109 ]
 }
-"43
-[; ;LCD.c: 43: void LCD_write_char(unsigned char ch)
-[v _LCD_write_char `(v ~T0 @X0 1 ef1`uc ]
 "44
-[; ;LCD.c: 44: {
-{
-[e :U _LCD_write_char ]
-"43
-[; ;LCD.c: 43: void LCD_write_char(unsigned char ch)
-[v _ch `uc ~T0 @X0 1 r1 ]
-"44
-[; ;LCD.c: 44: {
-[f ]
+[; ;SIM900A.c: 44: void _SIM900A_print(unsigned const char *ptr)
+[v __SIM900A_print `(v ~T0 @X0 1 ef1`*Cuc ]
 "45
-[; ;LCD.c: 45:     PORTB = ch;
-[e = _PORTB _ch ]
-"46
-[; ;LCD.c: 46:     RC5 = 1;
-[e = _RC5 -> -> 1 `i `b ]
-"47
-[; ;LCD.c: 47:     RC7 = 1;
-[e = _RC7 -> -> 1 `i `b ]
-"48
-[; ;LCD.c: 48:     _delay((unsigned long)((4)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"49
-[; ;LCD.c: 49:     RC7 = 0;
-[e = _RC7 -> -> 0 `i `b ]
-"51
-[; ;LCD.c: 51: }
-[e :UE 112 ]
-}
-"52
-[; ;LCD.c: 52: void LCD_init()
-[v _LCD_init `(v ~T0 @X0 1 ef ]
-"53
-[; ;LCD.c: 53: {
+[; ;SIM900A.c: 45: {
 {
-[e :U _LCD_init ]
+[e :U __SIM900A_print ]
+"44
+[; ;SIM900A.c: 44: void _SIM900A_print(unsigned const char *ptr)
+[v _ptr `*Cuc ~T0 @X0 1 r1 ]
+"45
+[; ;SIM900A.c: 45: {
 [f ]
-"55
-[; ;LCD.c: 55:   _delay((unsigned long)((20)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"56
-[; ;LCD.c: 56:   LCD_command(0x38);
-[e ( _LCD_command (1 -> -> 56 `i `uc ]
-"57
-[; ;LCD.c: 57:   LCD_command(0x0C);
-[e ( _LCD_command (1 -> -> 12 `i `uc ]
-"58
-[; ;LCD.c: 58:   LCD_command(0x06);
-[e ( _LCD_command (1 -> -> 6 `i `uc ]
-"59
-[; ;LCD.c: 59:   LCD_command(0x01);
-[e ( _LCD_command (1 -> -> 1 `i `uc ]
-"60
-[; ;LCD.c: 60:   LCD_command(0x80);
-[e ( _LCD_command (1 -> -> 128 `i `uc ]
-"61
-[; ;LCD.c: 61: }
+"46
+[; ;SIM900A.c: 46:     while (*ptr != 0)
+[e $U 114  ]
+[e :U 115 ]
+"47
+[; ;SIM900A.c: 47:     {
+{
+"48
+[; ;SIM900A.c: 48:         _SIM900A_putch(*ptr++);
+[e ( __SIM900A_putch (1 -> *U ++ _ptr * -> -> 1 `i `x -> -> # *U _ptr `i `x `uc ]
+"49
+[; ;SIM900A.c: 49:     }
+}
+[e :U 114 ]
+"46
+[; ;SIM900A.c: 46:     while (*ptr != 0)
+[e $ != -> *U _ptr `i -> 0 `i 115  ]
+[e :U 116 ]
+"50
+[; ;SIM900A.c: 50: }
 [e :UE 113 ]
 }

@@ -1,23 +1,14 @@
-/* 
- * File:   keypad_4x4.h
- * Author: 30698
- *
- * Created on 27 ?????????? 2021, 3:21 ??
- */
+#define RAW_MODE 1
+#define CANONICAL_MODE 2
 
-#ifndef KEYPAD_4X4_H
-#define	KEYPAD_4X4_H
+//keypad has two modes
+//Raw mode and canonical mode
+//if it is set in raw mode
+//every character pressed is 
+//read as unique 
+//In canonical mode characters
+//are saved in a buffer
+//until # is pressed
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
-
-
-
-#ifdef	__cplusplus
-}
-#endif
-
-#endif	/* KEYPAD_4X4_H */
-
+char read_keypad_char();
+char *read_keypad(int mode);
