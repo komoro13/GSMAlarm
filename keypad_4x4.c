@@ -1,6 +1,7 @@
 #include "keypad_4x4.h"
 #include <xc.h>
 #include "config.h"
+#include "LCD.h"
 
 #define KEYPAD_PORT PORTB
 #define COL1 RB0
@@ -11,6 +12,8 @@
 #define ROW2 RB5
 #define ROW3 RB6
 #define ROW4 RB7
+#define DELETE 'D'
+#define CLEAR 'C'
 
 //Keypad matrix 4x4
 //Keypad has columns and 4 rows
@@ -61,6 +64,11 @@ char read_keypad_pins()
     
 }
 
+void display_char_to_LCD(char buffer[])
+{
+    
+}
+
 char read_keypad_char()
 {
     char ch;
@@ -76,15 +84,34 @@ char read_keypad_char()
 }
 char *read_keypad(int mode)
 {
-    char *buffer;//Buffer has to be 15 char max
+    char buffer[15];//Buffer has to be 15 char max
     if (mode == CANONICAL_MODE)
     {
-        while(1)
-        {          
-            buffer = read_keypad_char();
-            //OK1
-            buffer++;
+        int i = 0;
+        char ch;
+        while (i<14)
+        {
+            ch = read_keypad_char();
+            if ( ch == DELETE)
+            {
+                i--;
+                buffer[i] = '';
+                //OK1
+                display_char_to_LCD(buffer);
+                continue;
+            }
+            if (ch == CLEAR)
+            {
+                i = 0;
+                buffer = 0;
+                display_char_to_LCD(buffer);
+            }
+            if (ch != 0)
+                buffer[i] = ch;
+            display_char_to_LCD(buffer);
+            i++;
         }
+        
         return buffer;
     }
     buffer = read_keypad_char();
