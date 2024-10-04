@@ -7,6 +7,7 @@
 int main()
 {
    boot();
+   //OK
    main_menu();
    return 0; 
 } 

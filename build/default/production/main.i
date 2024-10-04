@@ -1927,6 +1927,7 @@ void boot();
 int main()
 {
    boot();
+
    main_menu();
    return 0;
 }

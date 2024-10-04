@@ -24,4 +24,3 @@ extern "C" {
 #endif
 
 #endif	/* UART_H */
-

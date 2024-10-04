@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v2.45\pic\dat\20230818022343_en.msgs \
   -cn -h+dist/default/production\Board.X.production.sym \
   --cmf=dist/default/production\Board.X.production.cmf -z -Q16F877A \
-  -oC:\Users\tbogi\AppData\Local\Temp\xcAs12k.\driver_tmp_3.o \
+  -oC:\Users\tbogi\AppData\Local\Temp\xcAs15kg.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/Board.X.production.map \
-  --md=C:\Users\tbogi\AppData\Local\Temp\xcAs12k.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\tbogi\AppData\Local\Temp\xcAs15kg.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -AHEAP=0110h-016Fh -pheap=HEAP \
   -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
   -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 -ACOMMON=070h-07Fh \
@@ -22,7 +22,7 @@ Linker command line:
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -k \
-  C:\Users\tbogi\AppData\Local\Temp\xcAs12k.\driver_tmp_12.o \
+  C:\Users\tbogi\AppData\Local\Temp\xcAs15kg.\driver_tmp_12.o \
   dist/default/production\Board.X.production.o 
 
 Object code version is 3.11
@@ -32,46 +32,50 @@ Machine type is 16F877A
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\tbogi\AppData\Local\Temp\xcAs12k.\driver_tmp_12.o
+C:\Users\tbogi\AppData\Local\Temp\xcAs15kg.\driver_tmp_12.o
                 heap                                110      110       60      110       7
                 end_init                              0        0        3        0       0
                 config                             2007     2007        1        0       4
                 idloc                              2000     2000        4        0       5
 dist/default/production\Board.X.production.o
-                cinit                               7ED      7ED       13      FDA       0
+                cinit                               7E1      7E1       1F      FC2       0
                 config                             2007     2007        1        0       4
                 idloc                              2000     2000        4        0       5
-                text26                              349      349       16      692       0
-                text25                              2E1      2E1        6      5C2       0
-                text24                              35F      35F       18      6BE       0
-                text23                              311      311       10      622       0
-                text22                              321      321       14      642       0
-                text21                              42C      42C       32      858       0
-                text20                              4AA      4AA       4D      954       0
-                text19                              70B      70B       E2      E16       0
-                text18                              651      651       BA      CA2       0
-                text17                              3B1      3B1       23      762       0
-                text16                              377      377       1B      6EE       0
-                text15                              4F7      4F7       51      9EE       0
-                text14                              2D5      2D5        2      5AA       0
-                text13                              3D4      3D4       29      7A8       0
-                text12                              2D7      2D7        2      5AE       0
-                text11                              2D9      2D9        3      5B2       0
-                text10                              59C      59C       B5      B38       0
-                text9                               2E7      2E7        7      5CE       0
-                text8                               548      548       54      A90       0
-                text7                               2EE      2EE        A      5DC       0
-                text6                               392      392       1F      724       0
-                text5                               2F8      2F8        C      5F0       0
-                text4                               335      335       14      66A       0
-                text3                               2DC      2DC        5      5B8       0
-                text2                               3FD      3FD       2F      7FA       0
-                text1                               45E      45E       4C      8BC       0
-                maintext                            304      304        D      608       0
+                text27                              2DE      2DE       16      5BC       0
+                text26                              246      246        6      48C       0
+                text25                              2F4      2F4       18      5E8       0
+                text24                              283      283       10      506       0
+                text23                              2B6      2B6       14      56C       0
+                text22                              3C1      3C1       32      782       0
+                text21                              43F      43F       4D      87E       0
+                text20                              6FF      6FF       E2      DFE       0
+                text19                              645      645       BA      C8A       0
+                text18                              346      346       23      68C       0
+                text17                              30C      30C       1B      618       0
+                text16                              48C      48C       51      918       0
+                text15                              531      531       5F      A62       0
+                text14                              269      269        D      4D2       0
+                text13                              369      369       29      6D2       0
+                text12                              23C      23C        2      478       0
+                text11                              23E      23E        3      47C       0
+                text10                              590      590       B5      B20       0
+                text9                               24C      24C        7      498       0
+                text8                               4DD      4DD       54      9BA       0
+                text7                               253      253        A      4A6       0
+                text6                               327      327       1F      64E       0
+                text5                               25D      25D        C      4BA       0
+                text4                               2CA      2CA       14      594       0
+                text3                               241      241        5      482       0
+                text2                               392      392       2F      724       0
+                text1                               3F3      3F3       4C      7E6       0
+                maintext                            276      276        D      4EC       0
                 cstackBANK0                          20       20       1D       20       1
                 cstackCOMMON                         70       70        E       70       1
-                bssBANK0                             3D       3D        D       20       1
-                strings                               3        3       F9        6       0
+                inittext                            2A3      2A3       13      546       0
+                dataBANK0                            3D       3D       10       20       1
+                bssBANK0                             4D       4D        D       20       1
+                strings                               3        3       F8        6       0
+                idataBANK0                          293      293       10      526       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   HEAP           
@@ -79,39 +83,42 @@ TOTAL           Name                               Link     Load   Length     Sp
 
         CLASS   CODE           
                 end_init                              0        0        3         0
-                cinit                               7ED      7ED       13         0
-                text26                              349      349       16         0
-                text25                              2E1      2E1        6         0
-                text24                              35F      35F       18         0
-                text23                              311      311       10         0
-                text22                              321      321       14         0
-                text21                              42C      42C       32         0
-                text20                              4AA      4AA       4D         0
-                text19                              70B      70B       E2         0
-                text18                              651      651       BA         0
-                text17                              3B1      3B1       23         0
-                text16                              377      377       1B         0
-                text15                              4F7      4F7       51         0
-                text14                              2D5      2D5        2         0
-                text13                              3D4      3D4       29         0
-                text12                              2D7      2D7        2         0
-                text11                              2D9      2D9        3         0
-                text10                              59C      59C       B5         0
-                text9                               2E7      2E7        7         0
-                text8                               548      548       54         0
-                text7                               2EE      2EE        A         0
-                text6                               392      392       1F         0
-                text5                               2F8      2F8        C         0
-                text4                               335      335       14         0
-                text3                               2DC      2DC        5         0
-                text2                               3FD      3FD       2F         0
-                text1                               45E      45E       4C         0
-                maintext                            304      304        D         0
+                cinit                               7E1      7E1       1F         0
+                text27                              2DE      2DE       16         0
+                text26                              246      246        6         0
+                text25                              2F4      2F4       18         0
+                text24                              283      283       10         0
+                text23                              2B6      2B6       14         0
+                text22                              3C1      3C1       32         0
+                text21                              43F      43F       4D         0
+                text20                              6FF      6FF       E2         0
+                text19                              645      645       BA         0
+                text18                              346      346       23         0
+                text17                              30C      30C       1B         0
+                text16                              48C      48C       51         0
+                text15                              531      531       5F         0
+                text14                              269      269        D         0
+                text13                              369      369       29         0
+                text12                              23C      23C        2         0
+                text11                              23E      23E        3         0
+                text10                              590      590       B5         0
+                text9                               24C      24C        7         0
+                text8                               4DD      4DD       54         0
+                text7                               253      253        A         0
+                text6                               327      327       1F         0
+                text5                               25D      25D        C         0
+                text4                               2CA      2CA       14         0
+                text3                               241      241        5         0
+                text2                               392      392       2F         0
+                text1                               3F3      3F3       4C         0
+                maintext                            276      276        D         0
+                inittext                            2A3      2A3       13         0
+                idataBANK0                          293      293       10         0
 
         CLASS   STRCODE        
 
         CLASS   STRING         
-                strings                               3        3       F9         0
+                strings                               3        3       F8         0
 
         CLASS   CONST          
 
@@ -122,7 +129,8 @@ TOTAL           Name                               Link     Load   Length     Sp
 
         CLASS   BANK0          
                 cstackBANK0                          20       20       1D         1
-                bssBANK0                             3D       3D        D         1
+                dataBANK0                            3D       3D       10         1
+                bssBANK0                             4D       4D        D         1
 
         CLASS   BANK1          
 
@@ -158,55 +166,58 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                strings                        000003  0000F9  0000FC         6       0  STRING      2
-                cstackBANK0                    000020  00002A  00004A        20       1  BANK0       1
+                strings                        000003  0000F8  0000FB         6       0  STRING      2
+                cstackBANK0                    000020  00003A  00005A        20       1  BANK0       1
                 cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
                 heap                           000110  000060  000170       110       7  HEAP        1
-                text14                         0002D5  000002  0002D7       5AA       0  CODE        2
-                text12                         0002D7  000002  0002D9       5AE       0  CODE        2
-                text11                         0002D9  000003  0002DC       5B2       0  CODE        2
-                text3                          0002DC  000005  0002E1       5B8       0  CODE        2
-                text25                         0002E1  000006  0002E7       5C2       0  CODE        2
-                text9                          0002E7  000007  0002EE       5CE       0  CODE        2
-                text7                          0002EE  00000A  0002F8       5DC       0  CODE        2
-                text5                          0002F8  00000C  000304       5F0       0  CODE        2
-                maintext                       000304  00000D  000311       608       0  CODE        2
-                text23                         000311  000010  000321       622       0  CODE        2
-                text22                         000321  000014  000335       642       0  CODE        2
-                text4                          000335  000014  000349       66A       0  CODE        2
-                text26                         000349  000016  00035F       692       0  CODE        2
-                text24                         00035F  000018  000377       6BE       0  CODE        2
-                text16                         000377  00001B  000392       6EE       0  CODE        2
-                text6                          000392  00001F  0003B1       724       0  CODE        2
-                text17                         0003B1  000023  0003D4       762       0  CODE        2
-                text13                         0003D4  000029  0003FD       7A8       0  CODE        2
-                text2                          0003FD  00002F  00042C       7FA       0  CODE        2
-                text21                         00042C  000032  00045E       858       0  CODE        2
-                text1                          00045E  00004C  0004AA       8BC       0  CODE        2
-                text20                         0004AA  00004D  0004F7       954       0  CODE        2
-                text15                         0004F7  000051  000548       9EE       0  CODE        2
-                text8                          000548  000054  00059C       A90       0  CODE        2
-                text10                         00059C  0000B5  000651       B38       0  CODE        2
-                text18                         000651  0000BA  00070B       CA2       0  CODE        2
-                text19                         00070B  0000E2  0007ED       E16       0  CODE        2
-                cinit                          0007ED  000013  000800       FDA       0  CODE        2
+                text12                         00023C  000002  00023E       478       0  CODE        2
+                text11                         00023E  000003  000241       47C       0  CODE        2
+                text3                          000241  000005  000246       482       0  CODE        2
+                text26                         000246  000006  00024C       48C       0  CODE        2
+                text9                          00024C  000007  000253       498       0  CODE        2
+                text7                          000253  00000A  00025D       4A6       0  CODE        2
+                text5                          00025D  00000C  000269       4BA       0  CODE        2
+                text14                         000269  00000D  000276       4D2       0  CODE        2
+                maintext                       000276  00000D  000283       4EC       0  CODE        2
+                text24                         000283  000010  000293       506       0  CODE        2
+                idataBANK0                     000293  000010  0002A3       526       0  CODE        2
+                inittext                       0002A3  000013  0002B6       546       0  CODE        2
+                text23                         0002B6  000014  0002CA       56C       0  CODE        2
+                text4                          0002CA  000014  0002DE       594       0  CODE        2
+                text27                         0002DE  000016  0002F4       5BC       0  CODE        2
+                text25                         0002F4  000018  00030C       5E8       0  CODE        2
+                text17                         00030C  00001B  000327       618       0  CODE        2
+                text6                          000327  00001F  000346       64E       0  CODE        2
+                text18                         000346  000023  000369       68C       0  CODE        2
+                text13                         000369  000029  000392       6D2       0  CODE        2
+                text2                          000392  00002F  0003C1       724       0  CODE        2
+                text22                         0003C1  000032  0003F3       782       0  CODE        2
+                text1                          0003F3  00004C  00043F       7E6       0  CODE        2
+                text21                         00043F  00004D  00048C       87E       0  CODE        2
+                text16                         00048C  000051  0004DD       918       0  CODE        2
+                text8                          0004DD  000054  000531       9BA       0  CODE        2
+                text15                         000531  00005F  000590       A62       0  CODE        2
+                text10                         000590  0000B5  000645       B20       0  CODE        2
+                text19                         000645  0000BA  0006FF       C8A       0  CODE        2
+                text20                         0006FF  0000E2  0007E1       DFE       0  CODE        2
+                cinit                          0007E1  00001F  000800       FC2       0  CODE        2
 
 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            004A-006F             26           1
+        BANK0            005A-006F             16           1
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
-        CODE             00FC-02D4            1D9           2
+        CODE             00FB-023B            141           2
                          0800-1FFF            800
-        CONST            00FC-02D4            100           2
+        CONST            00FB-023B            100           2
                          0800-1FFF            100
         EEDATA           2100-21FF            100           2
-        ENTRY            00FC-02D4            100           2
+        ENTRY            00FB-023B            100           2
                          0800-1FFF            100
-        RAM              004A-006F             26           1
+        RAM              005A-006F             16           1
                          00A0-00EF             50
                          0110-016F             60
                          0190-01EF             60
@@ -214,9 +225,9 @@ UNUSED ADDRESS RANGES
         SFR1             0080-009F             20           1
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
-        STRCODE          00FC-02D4            1D9           2
+        STRCODE          00FB-023B            141           2
                          0800-1FFF           1800
-        STRING           00FC-02D4            100           2
+        STRING           00FB-023B            100           2
                          0800-1FFF            100
 
                                   Symbol Table
@@ -224,23 +235,28 @@ UNUSED ADDRESS RANGES
 ?___expand_heap                    cstackCOMMON 0070
 ?_concatenate                      cstackBANK0  002E
 ?_malloc                           cstackBANK0  0020
-?_read_keypad                      cstackCOMMON 0071
+?_read_keypad                      cstackCOMMON 0078
 ?_save_phone                       cstackCOMMON 0070
 ?_strlen                           cstackCOMMON 0070
 LCD_Write_String@Str               cstackBANK0  0036
 LCD_Write_String@i                 cstackBANK0  0038
 LCD_write_char@ch                  cstackCOMMON 0072
 _BRGH                              (abs)        04C2
-_BlinkMainLED                      text8        0548
+_BlinkMainLED                      text8        04DD
 _CREN                              (abs)        00C4
-_LCD_Write_String                  text21       042C
-_LCD_write_char                    text22       0321
-_MakeCall                          text5        02F8
+_LCD_Write_String                  text22       03C1
+_LCD_write_char                    text23       02B6
+_MakeCall                          text5        025D
 _OERR                              (abs)        00C1
 _PORTB                             (abs)        0006
+_RB0                               (abs)        0030
 _RB1                               (abs)        0031
+_RB2                               (abs)        0032
 _RB3                               (abs)        0033
 _RB4                               (abs)        0034
+_RB5                               (abs)        0035
+_RB6                               (abs)        0036
+_RB7                               (abs)        0037
 _RC5                               (abs)        003D
 _RC7                               (abs)        003F
 _RCIF                              (abs)        0065
@@ -274,12 +290,15 @@ __Hcommon                          common       0000
 __Hconfig                          config       2008
 __HcstackBANK0                     cstackBANK0  0000
 __HcstackCOMMON                    cstackCOMMON 0000
+__HdataBANK0                       dataBANK0    0000
 __Heeprom_data                     eeprom_data  0000
 __Hend_init                        end_init     0003
 __Hfunctab                         functab      0000
 __Hheap                            heap         0170
+__HidataBANK0                      idataBANK0   0000
 __Hidloc                           idloc        2004
 __Hinit                            init         0000
+__Hinittext                        inittext     0000
 __Hintentry                        intentry     0000
 __Hmaintext                        maintext     0000
 __Hpowerup                         powerup      0000
@@ -304,19 +323,22 @@ __Lbank1                           bank1        0000
 __Lbank2                           bank2        0000
 __Lbank3                           bank3        0000
 __LbssBANK0                        bssBANK0     0000
-__Lcinit                           cinit        07ED
+__Lcinit                           cinit        07E1
 __Lclrtext                         clrtext      0000
 __Lcode                            code         0000
 __Lcommon                          common       0000
 __Lconfig                          config       0000
 __LcstackBANK0                     cstackBANK0  0000
 __LcstackCOMMON                    cstackCOMMON 0000
+__LdataBANK0                       dataBANK0    0000
 __Leeprom_data                     eeprom_data  0000
 __Lend_init                        end_init     0000
 __Lfunctab                         functab      0000
 __Lheap                            heap         0110
+__LidataBANK0                      idataBANK0   0000
 __Lidloc                           idloc        0000
 __Linit                            init         0000
+__Linittext                        inittext     0000
 __Lintentry                        intentry     0000
 __Lmaintext                        maintext     0000
 __Lpowerup                         powerup      0000
@@ -338,22 +360,22 @@ __S0                               (abs)        0800
 __S1                               (abs)        007E
 __S3                               (abs)        0000
 __S7                               (abs)        0170
-__SIM900A_print                    text6        0392
+__SIM900A_print                    text6        0327
 __SIM900A_print@ptr                cstackCOMMON 0071
-__SIM900A_putch                    text7        02EE
+__SIM900A_putch                    text7        0253
 __SIM900A_putch@bt                 cstackCOMMON 0070
-___expand_heap                     text20       04AA
+___expand_heap                     text21       043F
 ___expand_heap@n                   cstackCOMMON 0071
 ___expand_heap@new_brkp            cstackCOMMON 0073
 ___expand_heap@pn                  cstackCOMMON 0070
-___freelist                        bssBANK0     0049
+___freelist                        bssBANK0     0059
 ___heap_hi                         heap         0170
 ___heap_lo                         heap         0110
 ___int_sp                          stack        0000
 ___int_stack_hi                    stack        0000
 ___int_stack_lo                    stack        0000
 ___latbits                         (abs)        0002
-___simple_search_fl                text19       070B
+___simple_search_fl                text20       06FF
 ___simple_search_fl@best           cstackCOMMON 007D
 ___simple_search_fl@best_last      cstackCOMMON 0078
 ___simple_search_fl@c              cstackCOMMON 007C
@@ -367,121 +389,131 @@ ___stack_hi                        stack        0000
 ___stack_lo                        stack        0000
 ___stackhi                         (abs)        0000
 ___stacklo                         (abs)        0000
-__end_of_BlinkMainLED              text8        059C
-__end_of_LCD_Write_String          text21       045E
-__end_of_LCD_write_char            text22       0335
-__end_of_MakeCall                  text5        0304
-__end_of__SIM900A_print            text6        03B1
-__end_of__SIM900A_putch            text7        02F8
-__end_of___expand_heap             text20       04F7
-__end_of___simple_search_fl        text19       07ED
+__end_of_BlinkMainLED              text8        0531
+__end_of_LCD_Write_String          text22       03F3
+__end_of_LCD_write_char            text23       02CA
+__end_of_MakeCall                  text5        0269
+__end_of__SIM900A_print            text6        0346
+__end_of__SIM900A_putch            text7        025D
+__end_of___expand_heap             text21       048C
+__end_of___simple_search_fl        text20       07E1
 __end_of__initialization           cinit        07FC
 __end_of__stringtab                strings      0013
-__end_of_blink_sensor_led          text4        0349
-__end_of_boot                      text23       0321
-__end_of_boot_led_blink            text26       035F
-__end_of_concatenate               text15       0548
-__end_of_init_trisio               text25       02E7
-__end_of_initialize_SIM900A        text24       0377
-__end_of_main                      maintext     0311
-__end_of_main_menu                 text1        04AA
-__end_of_malloc                    text18       070B
-__end_of_read_keypad               text13       03FD
-__end_of_read_keypad_char          text14       02D7
-__end_of_read_saved_phone          text12       02D9
-__end_of_save_phone                text11       02DC
-__end_of_sensor_leds_off           text3        02E1
-__end_of_settings                  text10       0651
-__end_of_sleep                     text9        02EE
-__end_of_start                     text2        042C
-__end_of_strcpy                    text17       03D4
-__end_of_strlen                    text16       0392
-__initialization                   cinit        07ED
-__pbssBANK0                        bssBANK0     003D
+__end_of_blink_sensor_led          text4        02DE
+__end_of_boot                      text24       0293
+__end_of_boot_led_blink            text27       02F4
+__end_of_concatenate               text16       04DD
+__end_of_init_trisio               text26       024C
+__end_of_initialize_SIM900A        text25       030C
+__end_of_main                      maintext     0283
+__end_of_main_menu                 text1        043F
+__end_of_malloc                    text19       06FF
+__end_of_read_keypad               text13       0392
+__end_of_read_keypad_char          text14       0276
+__end_of_read_keypad_pins          text15       0590
+__end_of_read_saved_phone          text12       023E
+__end_of_save_phone                text11       0241
+__end_of_sensor_leds_off           text3        0246
+__end_of_settings                  text10       0645
+__end_of_sleep                     text9        0253
+__end_of_start                     text2        03C1
+__end_of_strcpy                    text18       0369
+__end_of_strlen                    text17       0327
+__initialization                   cinit        07E1
+__pbssBANK0                        bssBANK0     004D
 __pcstackBANK0                     cstackBANK0  0020
 __pcstackCOMMON                    cstackCOMMON 0070
-__pmaintext                        maintext     0304
+__pdataBANK0                       dataBANK0    003D
+__pidataBANK0                      idataBANK0   0293
+__pmaintext                        maintext     0276
 __pstrings                         strings      0003
-__ptext1                           text1        045E
-__ptext10                          text10       059C
-__ptext11                          text11       02D9
-__ptext12                          text12       02D7
-__ptext13                          text13       03D4
-__ptext14                          text14       02D5
-__ptext15                          text15       04F7
-__ptext16                          text16       0377
-__ptext17                          text17       03B1
-__ptext18                          text18       0651
-__ptext19                          text19       070B
-__ptext2                           text2        03FD
-__ptext20                          text20       04AA
-__ptext21                          text21       042C
-__ptext22                          text22       0321
-__ptext23                          text23       0311
-__ptext24                          text24       035F
-__ptext25                          text25       02E1
-__ptext26                          text26       0349
-__ptext3                           text3        02DC
-__ptext4                           text4        0335
-__ptext5                           text5        02F8
-__ptext6                           text6        0392
-__ptext7                           text7        02EE
-__ptext8                           text8        0548
-__ptext9                           text9        02E7
+__ptext1                           text1        03F3
+__ptext10                          text10       0590
+__ptext11                          text11       023E
+__ptext12                          text12       023C
+__ptext13                          text13       0369
+__ptext14                          text14       0269
+__ptext15                          text15       0531
+__ptext16                          text16       048C
+__ptext17                          text17       030C
+__ptext18                          text18       0346
+__ptext19                          text19       0645
+__ptext2                           text2        0392
+__ptext20                          text20       06FF
+__ptext21                          text21       043F
+__ptext22                          text22       03C1
+__ptext23                          text23       02B6
+__ptext24                          text24       0283
+__ptext25                          text25       02F4
+__ptext26                          text26       0246
+__ptext27                          text27       02DE
+__ptext3                           text3        0241
+__ptext4                           text4        02CA
+__ptext5                           text5        025D
+__ptext6                           text6        0327
+__ptext7                           text7        0253
+__ptext8                           text8        04DD
+__ptext9                           text9        024C
 __stringbase                       strings      0012
 __stringtab                        strings      0003
-_blink_sensor_led                  text4        0335
-_boot                              text23       0311
-_boot_led_blink                    text26       0349
-_brkp                              bssBANK0     0041
-_concatenate                       text15       04F7
-_errno                             bssBANK0     0047
-_init_trisio                       text25       02E1
-_initialize_SIM900A                text24       035F
-_main                              maintext     0304
-_main_menu                         text1        045E
-_malloc                            text18       0651
-_read_keypad                       text13       03D4
-_read_keypad_char                  text14       02D5
-_read_saved_phone                  text12       02D7
-_save_phone                        text11       02D9
-_sensor_leds_off                   text3        02DC
-_settings                          text10       059C
-_sleep                             text9        02E7
-_start                             text2        03FD
-_strcpy                            text17       03B1
-_strlen                            text16       0377
+_blink_sensor_led                  text4        02CA
+_boot                              text24       0283
+_boot_led_blink                    text27       02DE
+_brkp                              bssBANK0     0051
+_characters                        dataBANK0    003D
+_concatenate                       text16       048C
+_errno                             bssBANK0     0057
+_init_trisio                       text26       0246
+_initialize_SIM900A                text25       02F4
+_main                              maintext     0276
+_main_menu                         text1        03F3
+_malloc                            text19       0645
+_read_keypad                       text13       0369
+_read_keypad_char                  text14       0269
+_read_keypad_pins                  text15       0531
+_read_saved_phone                  text12       023C
+_save_phone                        text11       023E
+_sensor_leds_off                   text3        0241
+_settings                          text10       0590
+_sleep                             text9        024C
+_start                             text2        0392
+_strcpy                            text18       0346
+_strlen                            text17       030C
 blink_sensor_led@sensor            cstackCOMMON 0070
 btemp                              (abs)        007E
 concatenate@result                 cstackBANK0  0034
 concatenate@s1                     cstackBANK0  0033
 concatenate@s2                     cstackBANK0  002E
 end_of_initialization              cinit        07FC
+init_fetch0                        inittext     02A3
+init_ram0                          inittext     02A7
 intlevel0                          functab      0000
 intlevel1                          functab      0000
 intlevel2                          functab      0000
 intlevel3                          functab      0000
 intlevel4                          functab      0000
 intlevel5                          functab      0000
-malloc@cur                         bssBANK0     0045
-malloc@end                         bssBANK0     0043
-malloc@lock                        bssBANK0     003D
+malloc@cur                         bssBANK0     0055
+malloc@end                         bssBANK0     0053
+malloc@lock                        bssBANK0     004D
 malloc@m                           cstackBANK0  0024
 malloc@n                           cstackBANK0  0020
 malloc@new                         cstackBANK0  002C
 malloc@p                           cstackBANK0  002A
 malloc@size                        cstackBANK0  0028
 malloc@sz                          cstackBANK0  0026
-read_keypad@buffer                 cstackCOMMON 0075
-read_keypad@mode                   cstackCOMMON 0071
-read_keypad_char@ch                cstackCOMMON 0070
+read_keypad@buffer                 cstackCOMMON 007C
+read_keypad@mode                   cstackCOMMON 0078
+read_keypad_char@ch                cstackCOMMON 0077
+read_keypad_pins@COL               cstackCOMMON 0075
+read_keypad_pins@ROW               cstackCOMMON 0073
 read_saved_phone@phone             cstackCOMMON 0071
 reset_vec                          reset_vec    0000
 save_phone@phone                   cstackCOMMON 0070
 settings@phone                     cstackBANK0  003A
 settings@saved_number              cstackBANK0  003C
 start                              init         0000
-start_initialization               cinit        07ED
+start_initialization               cinit        07E1
 strcpy@d                           cstackCOMMON 0075
 strcpy@dest                        cstackCOMMON 0070
 strcpy@src                         cstackCOMMON 0072
@@ -494,75 +526,76 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\expand_heap.c
-		___expand_heap 		CODE           	04AA	0000	77
+		___expand_heap 		CODE           	043F	0000	77
 
 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\expand_heap.c estimated size: 77
 
 keypad_4x4.c
-		_read_keypad_char		CODE           	02D5	0000	2
-		_read_keypad   		CODE           	03D4	0000	41
+		_read_keypad_char		CODE           	0269	0000	13
+		_read_keypad_pins		CODE           	0531	0000	95
+		_read_keypad   		CODE           	0369	0000	41
 
-keypad_4x4.c estimated size: 43
+keypad_4x4.c estimated size: 149
 
 firmware.c
-		_settings      		CODE           	059C	0000	181
-		_boot          		CODE           	0311	0000	16
-		_sensor_leds_off		CODE           	02DC	0000	5
-		_MakeCall      		CODE           	02F8	0000	12
-		_boot_led_blink		CODE           	0349	0000	22
-		_save_phone    		CODE           	02D9	0000	3
-		_main_menu     		CODE           	045E	0000	76
-		_blink_sensor_led		CODE           	0335	0000	20
-		_start         		CODE           	03FD	0000	47
-		_BlinkMainLED  		CODE           	0548	0000	84
-		_init_trisio   		CODE           	02E1	0000	6
-		_concatenate   		CODE           	04F7	0000	81
-		_sleep         		CODE           	02E7	0000	7
-		_read_saved_phone		CODE           	02D7	0000	2
+		_settings      		CODE           	0590	0000	181
+		_boot          		CODE           	0283	0000	16
+		_sensor_leds_off		CODE           	0241	0000	5
+		_MakeCall      		CODE           	025D	0000	12
+		_boot_led_blink		CODE           	02DE	0000	22
+		_save_phone    		CODE           	023E	0000	3
+		_main_menu     		CODE           	03F3	0000	76
+		_blink_sensor_led		CODE           	02CA	0000	20
+		_start         		CODE           	0392	0000	47
+		_BlinkMainLED  		CODE           	04DD	0000	84
+		_init_trisio   		CODE           	0246	0000	6
+		_concatenate   		CODE           	048C	0000	81
+		_sleep         		CODE           	024C	0000	7
+		_read_saved_phone		CODE           	023C	0000	2
 
 firmware.c estimated size: 562
 
 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lite_malloc.c
-		_malloc        		CODE           	0651	0000	186
+		_malloc        		CODE           	0645	0000	186
 
 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lite_malloc.c estimated size: 186
 
 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lite_free.c
-		___simple_search_fl		CODE           	070B	0000	226
+		___simple_search_fl		CODE           	06FF	0000	226
 
 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\lite_free.c estimated size: 226
 
 shared
 		__stringtab    		STRING         	0003	0000	16
-		__initialization		CODE           	07ED	0000	15
+		__initialization		CODE           	07E1	0000	27
 
-shared estimated size: 31
+shared estimated size: 43
 
 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\strlen.c
-		_strlen        		CODE           	0377	0000	27
+		_strlen        		CODE           	030C	0000	27
 
 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\strlen.c estimated size: 27
 
 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\strcpy.c
-		_strcpy        		CODE           	03B1	0000	35
+		_strcpy        		CODE           	0346	0000	35
 
 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\strcpy.c estimated size: 35
 
 SIM900A.c
-		__SIM900A_putch		CODE           	02EE	0000	10
-		__SIM900A_print		CODE           	0392	0000	31
-		_initialize_SIM900A		CODE           	035F	0000	24
+		__SIM900A_putch		CODE           	0253	0000	10
+		__SIM900A_print		CODE           	0327	0000	31
+		_initialize_SIM900A		CODE           	02F4	0000	24
 
 SIM900A.c estimated size: 65
 
 main.c
-		_main          		CODE           	0304	0000	13
+		_main          		CODE           	0276	0000	13
 
 main.c estimated size: 13
 
 LCD.c
-		_LCD_write_char		CODE           	0321	0000	20
-		_LCD_Write_String		CODE           	042C	0000	50
+		_LCD_write_char		CODE           	02B6	0000	20
+		_LCD_Write_String		CODE           	03C1	0000	50
 
 LCD.c estimated size: 70
 

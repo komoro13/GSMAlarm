@@ -2147,7 +2147,8 @@ void init_trisio()
 
 void main_menu()
 {
-    LCD_Write_String("GSM 9ALARM\n Start (1) Sleep(2) Settings(3)");
+    LCD_Write_String("GSM ALARM\n Start (1) Sleep(2) Settings(3)");
+
     if (read_keypad(1) == 1)
         start();
     else if(read_keypad(1) == 2)
@@ -2162,4 +2163,5 @@ void boot()
    initialize_SIM900A();
    init_trisio();
    boot_led_blink();
+
 }

@@ -214,14 +214,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9
 [; ;main.c: 9:    boot();
 [e ( _boot ..  ]
-"10
-[; ;main.c: 10:    main_menu();
-[e ( _main_menu ..  ]
 "11
-[; ;main.c: 11:    return 0;
+[; ;main.c: 11:    main_menu();
+[e ( _main_menu ..  ]
+"12
+[; ;main.c: 12:    return 0;
 [e ) -> 0 `i ]
 [e $UE 99  ]
-"12
-[; ;main.c: 12: }
+"13
+[; ;main.c: 13: }
 [e :UE 99 ]
 }
