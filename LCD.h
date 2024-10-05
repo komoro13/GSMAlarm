@@ -23,3 +23,4 @@ void LCD_write_char(unsigned char ch);
 void LCD_Write_String(char* Str);
 void LCD_Set_Cursor(unsigned char ROW, unsigned char COL);
 void LCD_init();
+void LCD_display(char *str);

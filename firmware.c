@@ -61,11 +61,12 @@ void boot_led_blink()
 }
 //---------------------------End of LED functions---------------------
 
-
 //-----------------------Call functions-------------------------------
 void MakeCall()
 {   
-   _SIM900A_print("ATD6986951309;\r\n");
+    char *AT_COMMAND = concatenate("ATD", read_saved_phone());
+    AT_COMMAND = concatenate(AT_COMMAND, ";\r\n");
+   _SIM900A_print(AT_COMMAND);
    BlinkMainLED();
 }
 //-----------------------End of call functions------------------------
@@ -108,31 +109,32 @@ int save_phone(char *phone)
 char *read_saved_phone()
 {
     char *phone;
+    //OK1
     return phone;
 }
 void settings()
 {
-    LCD_Write_String("Settings\nSave phone number(1) Read saved number(2)");
+    LCD_display("Settings\nSave phone number(1) Read saved number(2)");
     if (read_keypad(RAW_MODE) == 1)
     {
         char *phone;
-        LCD_Write_String("Enter your phone");
+        LCD_display("Enter your phone");
         phone = read_keypad(CANONICAL_MODE);
         if (save_phone(phone) == 0)
-            LCD_Write_String("Phone saved successfully");
+            LCD_display("Phone saved successfully");
         else 
-            LCD_Write_String("Error saving phone");
+            LCD_display("Error saving phone");
         return;
     }
     char *saved_number;
     if (read_saved_phone() == "err")
     {
-        LCD_Write_String("Error reading number");
+        LCD_display("Error reading number");
         return;
     }
     if (read_saved_phone() == "")
     {
-        LCD_Write_String("No number saved");
+        LCD_display("No number saved");
         return;
     }
     saved_number = read_saved_phone();
@@ -140,7 +142,7 @@ void settings()
     
     
     if (read_keypad(RAW_MODE) == 2)
-        LCD_Write_String(concatenate("Saved phone number\n", saved_number));
+        LCD_display(concatenate("Saved phone number\n", saved_number));
         
 }
 //---------------------End of settings functions----------------------
@@ -155,8 +157,7 @@ void init_trisio()
 
 void main_menu()
 {
-    LCD_Write_String("GSM ALARM\n Start (1) Sleep(2) Settings(3)");
-    //OK
+    LCD_display("GSM ALARM\n Start (1) Sleep(2) Settings(3)"); 
     if (read_keypad(RAW_MODE) == 1)
         start();
     else if(read_keypad(RAW_MODE) == 2)

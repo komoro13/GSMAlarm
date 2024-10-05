@@ -6,6 +6,12 @@
 #define RW RC6
 #define RS RC5
 
+LCD_display(char *str)
+{
+    LCD_command(LCD_CLEAR);
+    LCD_display(str);
+}
+
 void LCD_Write_String(char* Str)
 {
   for(int i=0; Str[i]!='\0'; i++)

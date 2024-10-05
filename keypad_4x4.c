@@ -64,11 +64,6 @@ char read_keypad_pins()
     
 }
 
-void display_char_to_LCD(char buffer[])
-{
-    
-}
-
 char read_keypad_char()
 {
     char ch;
@@ -95,20 +90,19 @@ char *read_keypad(int mode)
             if ( ch == DELETE)
             {
                 i--;
-                buffer[i] = '';
-                //OK1
-                display_char_to_LCD(buffer);
+                buffer[i] = ''; 
+                LCD_display(buffer);
                 continue;
             }
             if (ch == CLEAR)
             {
                 i = 0;
                 buffer = 0;
-                display_char_to_LCD(buffer);
+                LCD_display(buffer);
             }
             if (ch != 0)
                 buffer[i] = ch;
-            display_char_to_LCD(buffer);
+            LCD_display(buffer);
             i++;
         }
         
