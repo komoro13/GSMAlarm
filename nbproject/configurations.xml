@@ -10,6 +10,7 @@
       <itemPath>LCD.h</itemPath>
       <itemPath>SIM900A.h</itemPath>
       <itemPath>firmware.h</itemPath>
+      <itemPath>EEPROM.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -24,6 +25,7 @@
       <itemPath>main.c</itemPath>
       <itemPath>firmware.c</itemPath>
       <itemPath>SIM900A.c</itemPath>
+      <itemPath>EEPROM.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
