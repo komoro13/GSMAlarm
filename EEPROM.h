@@ -21,3 +21,6 @@ extern "C" {
 
 #endif	/* EEPROM_H */
 
+int EEPROM_Read(uint8_t addr);
+int EEPROM_Write(uint8_t data_ch, uint8_t addr);
+

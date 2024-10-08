@@ -27,18 +27,46 @@ uint8_t EEPROM_Read_Byte(uint8_t addr)
     return data;
 }
 
-int EEPROM_Write(char *data)
+uint8_t *char_to_uint8_t(char *data_ch)
 {
+    int s_data;
+    s_data = sizeof(data_ch);
+    uint8_t data[15];
+    
+    for (int i = 0; i < s_data; i++)
+    {
+        data_ch[i] = (uint8_t)atoi(data[i]);
+    }
+    return data;
+}
+
+int EEPROM_Write(char *data_ch, uint8_t addr)
+{
+    uint8_t address;
+    uint8_t data[15] = char_to_uint8_t(data_ch);
+    address = addr;
+    
+    
     int data_len = sizeof(data);
     for (int i = 0; i < data_len; i++)
     {
-       
+        EEPROM_Write_Byte(data[i]);
+        address++;
     }
     return 0;
 }
 
-int EEPROM_Read()
+int EEPROM_Read(uint8_t addr)
 {
+    char data[15];
+    uint8_t address = addr;
     
+    for (int i = 0; int < 15; i++)
+    {
+        if (EEPROM_Read_Byte(address) == 0)
+                break;
+        data[i] = EEPROM_Read_Byte(address);
+        address++;
+    }
     return 0;
 }

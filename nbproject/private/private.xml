@@ -6,9 +6,9 @@
         <group name="Rita's gift"/>
         <group>
             <file>file:/C:/Users/tbogi/Desktop/Board.X/main.c</file>
-            <file>file:/C:/Users/tbogi/Desktop/Board.X/SIM900A.c</file>
             <file>file:/C:/Users/tbogi/Desktop/Board.X/firmware.c</file>
-            <file>file:/C:/Users/tbogi/Desktop/Board.X/keypad_4x4.c</file>
+            <file>file:/C:/Users/tbogi/Desktop/Board.X/EEPROM.h</file>
+            <file>file:/C:/Users/tbogi/Desktop/Board.X/EEPROM.c</file>
         </group>
     </open-files>
 </project-private>

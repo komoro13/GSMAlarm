@@ -1,10 +1,13 @@
 #include <xc.h>
+#include <stdlib.h>
+#include <string.h>
 #include "config.h"
 #include "LCD.h"
 #include "keypad_4x4.h"
 #include "SIM900A.h"
-#include <stdlib.h>
-#include <string.h>
+#include "EEPROM.h"
+
+#define PHONE_ADDR 0x00
 //---------------------------String functions--------------------------
 
 char *concatenate(const char *s1, const char *s2)
@@ -104,12 +107,14 @@ void sleep()
 //---------------------Settings functions-----------------------------
 int save_phone(char *phone)
 {
+    EEPROM_WRITE(phone,PHONE_ADDR);
     return 0;
 }
 char *read_saved_phone()
 {
     char *phone;
     //OK1
+    phone = EEPROM_Read(PHONE_ADDR);
     return phone;
 }
 void settings()
