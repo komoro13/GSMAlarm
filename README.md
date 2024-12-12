@@ -58,7 +58,7 @@ void boot() {
 
 The `MakeCall` function initiates a call to the saved phone number using the SIM900A GSM module:
 
-'''c
+```c
 void MakeCall() {   
     char *AT_COMMAND = concatenate("ATD", read_saved_phone());
     AT_COMMAND = concatenate(AT_COMMAND, ";\r\n");
@@ -74,7 +74,7 @@ void MakeCall() {
 
 The `read_keypad` function supports two modes specific to the GSM Alarm project: **Canonical Mode** and **Raw Mode**.
 
-'''c
+```c
 char *read_keypad(int mode)
 {
     char buffer[15];//Buffer has to be 15 char max
