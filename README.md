@@ -47,7 +47,7 @@ void boot() {
     init_trisio();
     boot_led_blink();
 }
-
+```
 - **Functionality**: This function sets up necessary components for the project to operate.
 - **Initialization Steps**:
   - `initialize_SIM900A()`: Prepares the SIM900A module for communication.
@@ -65,7 +65,7 @@ void MakeCall() {
     _SIM900A_print(AT_COMMAND);
     BlinkMainLED();
 }
-
+```
 - **Functionality**: Constructs an AT command to dial a saved phone number and sends it to the SIM900A module.
 - **AT Command Format**: Formatted as `ATD<number>;\r\n`, where `<number>` is the saved phone number.
 - **LED Indication**: The `BlinkMainLED()` function provides visual feedback when a call is being initiated.
@@ -109,7 +109,7 @@ char *read_keypad(int mode)
     buffer = read_keypad_char();
     return buffer;
 }
-
+```
 #### Canonical Mode
 - **Use Case**: Utilized when saving or changing the user's phone number.
 - **Functionality**: Allows users to enter numbers with real-time feedback on the LCD. Users can delete mistakes or clear input, ensuring accurate phone numbers are stored for calling.
