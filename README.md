@@ -41,7 +41,12 @@ The GSM Alarm project is written in C using the XC8 compiler and MPLAB X IDE. Th
 
 The `boot` function initializes the system upon startup. Here is a brief overview of the function:
 
-[snippet]
+```c
+void boot() {
+    initialize_SIM900A();
+    init_trisio();
+    boot_led_blink();
+}
 
 - **Functionality**: This function sets up necessary components for the project to operate.
 - **Initialization Steps**:
@@ -53,7 +58,13 @@ The `boot` function initializes the system upon startup. Here is a brief overvie
 
 The `MakeCall` function initiates a call to the saved phone number using the SIM900A GSM module:
 
-[snippet]
+'''c
+void MakeCall() {   
+    char *AT_COMMAND = concatenate("ATD", read_saved_phone());
+    AT_COMMAND = concatenate(AT_COMMAND, ";\r\n");
+    _SIM900A_print(AT_COMMAND);
+    BlinkMainLED();
+}
 
 - **Functionality**: Constructs an AT command to dial a saved phone number and sends it to the SIM900A module.
 - **AT Command Format**: Formatted as `ATD<number>;\r\n`, where `<number>` is the saved phone number.
@@ -62,6 +73,42 @@ The `MakeCall` function initiates a call to the saved phone number using the SIM
 ### Keypad Modes
 
 The `read_keypad` function supports two modes specific to the GSM Alarm project: **Canonical Mode** and **Raw Mode**.
+
+'''c
+char *read_keypad(int mode)
+{
+    char buffer[15];//Buffer has to be 15 char max
+    if (mode == CANONICAL_MODE)
+    {
+        int i = 0;
+        char ch;
+        while (i<14)
+        {
+            ch = read_keypad_char();
+            if ( ch == DELETE)
+            {
+                i--;
+                buffer[i] = ''; 
+                LCD_display(buffer);
+                continue;
+            }
+            if (ch == CLEAR)
+            {
+                i = 0;
+                buffer = 0;
+                LCD_display(buffer);
+            }
+            if (ch != 0)
+                buffer[i] = ch;
+            LCD_display(buffer);
+            i++;
+        }
+        
+        return buffer;
+    }
+    buffer = read_keypad_char();
+    return buffer;
+}
 
 #### Canonical Mode
 - **Use Case**: Utilized when saving or changing the user's phone number.
