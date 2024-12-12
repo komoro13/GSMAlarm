@@ -14,6 +14,14 @@ The GSM Alarm project is written in C using the XC8 compiler and MPLAB X IDE. Th
 
 ## Hardware Setup
 
+## PCB Layout
+
+Here’s the layout of the PCB used in the project:
+
+![PCB Layout](PCB/pcb_screenshot.png)  <!-- Replace with the actual path to your image -->
+
+*The design is created for the main board components, ensuring proper connections and functionality.*
+
 ### Components
 
 1. **Main Board:**
