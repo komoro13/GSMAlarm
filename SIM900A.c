@@ -48,3 +48,4 @@ void _SIM900A_print(unsigned const char *ptr)
         _SIM900A_putch(*ptr++);
     }
 }
+//OK

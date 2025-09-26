@@ -3,76 +3,13 @@
 #include <string.h>
 #include "config.h"
 #include "LCD.h"
+#include "firmware.h"
 #include "keypad_4x4.h"
 #include "SIM900A.h"
 #include "EEPROM.h"
+#include "helpers.h"
+#include "LED.h"
 
-#define PHONE_ADDR 0x00
-//---------------------------String functions--------------------------
-
-char *concatenate(const char *s1, const char *s2)
-{
-    char *result = malloc(strlen(s1) + strlen(s2) + 1);
-    strcpy(result, s1);
-    strcpy(result, s2);
-    return result;
-}
-
-//---------------------------End of string functions-------------------
-
-//---------------------------LED functions-----------------------------
-void BlinkMainLED()
-{
-    RB1=1;
-    __delay_ms(200);
-    RB1=0;
-    __delay_ms(200);
-    RB1=1;
-    __delay_ms(200);
-    RB1=0;
-    __delay_ms(200);
-    RB1=1;
-    __delay_ms(200);
-    RB1=0;    
-}
-void blink_sensor_led(int sensor)
-{    
-    if (sensor == 1)
-    {    
-        RB3=1;
-        __delay_ms(1000);
-        RB3=0;
-        return;
-    }
-    RB3=1;
-    __delay_ms(1000);
-    RB3=0;
-    
-}
-void sensor_leds_off()
-{
-    RB3=0;
-    RB4=0;
-}
-void boot_led_blink()
-{
-    RB3 = 1;
-    RB4 = 1;
-    __delay_ms(1000);
-    RB3 = 0;
-    RB4 = 0;
-}
-//---------------------------End of LED functions---------------------
-
-//-----------------------Call functions-------------------------------
-void MakeCall()
-{   
-    char *AT_COMMAND = concatenate("ATD", read_saved_phone());
-    AT_COMMAND = concatenate(AT_COMMAND, ";\r\n");
-   _SIM900A_print(AT_COMMAND);
-   BlinkMainLED();
-}
-//-----------------------End of call functions------------------------
 
 //---------------------Running functions------------------------------
 
@@ -82,14 +19,14 @@ void start()
     while(1) 
         if (RD1==1)       
         {
-            blink_sensor_led(1);
+            BlinkLED(1,1);
             MakeCall();
            
         }
         else if (RD3==1)
         {
             MakeCall();
-            blink_sensor_led(2);
+            BlinkLED(1,2);
         }
         else 
         {
@@ -105,20 +42,11 @@ void sleep()
 
 //-----------------End of running functions-------------------------------
 //---------------------Settings functions-----------------------------
-int save_phone(char *phone)
-{
-    EEPROM_WRITE(phone,PHONE_ADDR);
-    return 0;
-}
-char *read_saved_phone()
-{
-    char *phone;
-    //OK1
-    phone = EEPROM_Read(PHONE_ADDR);
-    return phone;
-}
+
+
 void settings()
 {
+    char message[32] = "";
     LCD_display("Settings\nSave phone number(1) Read saved number(2)");
     if (read_keypad(RAW_MODE) == 1)
     {
@@ -147,8 +75,11 @@ void settings()
     
     
     if (read_keypad(RAW_MODE) == 2)
-        LCD_display(concatenate("Saved phone number\n", saved_number));
+    {
         
+        u8_concat("Saved phone number\n", (unsigned const char*)saved_number,message, sizeof(message));
+        LCD_display(message);
+    }
 }
 //---------------------End of settings functions----------------------
 
@@ -177,8 +108,10 @@ void boot()
    initialize_SIM900A();
    init_trisio();
    boot_led_blink();
-   //OK
+   
 }
 
 
 //----------------------End of initializing functions----------------------
+
+//OK

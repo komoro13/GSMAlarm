@@ -4,6 +4,7 @@
 #include "LCD.h"
 
 #define KEYPAD_PORT PORTB
+
 #define COL1 RB0
 #define COL2 RB1
 #define COL3 RB2
@@ -12,8 +13,11 @@
 #define ROW2 RB5
 #define ROW3 RB6
 #define ROW4 RB7
+
 #define DELETE 'D'
 #define CLEAR 'C'
+
+#define MAX_PHONE_LENGTH 15
 
 //Keypad matrix 4x4
 //Keypad has columns and 4 rows
@@ -79,15 +83,19 @@ char read_keypad_char()
 }
 char *read_keypad(int mode)
 {
+    //when reading strings from a keypad 
+    //in canonical mode
     char buffer[15];//Buffer has to be 15 char max
+    
     if (mode == CANONICAL_MODE)
     {
         int i = 0;
         char ch;
-        while (i<14)
+        
+        while (i < MAX_PHONE_LENGTH)
         {
             ch = read_keypad_char();
-            if ( ch == DELETE)
+            if ( ch == DELETE && i>0)
             {
                 i--;
                 buffer[i] = ''; 
@@ -105,9 +113,7 @@ char *read_keypad(int mode)
             LCD_display(buffer);
             i++;
         }
-        
         return buffer;
     }
-    buffer = read_keypad_char();
-    return buffer;
+    return read_keypad_char();
 }

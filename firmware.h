@@ -22,3 +22,12 @@ extern "C" {
 #endif	/* FIRMWARE_H */
 void main_menu();
 void boot();
+void BlinkLED(int mode, int sensor);
+void sensor_leds_off();
+void boot_led_blink();
+void MakeCall();
+void start();
+void sleep();
+int save_phone(char *phone);
+char *read_saved_phone();
+void settings();

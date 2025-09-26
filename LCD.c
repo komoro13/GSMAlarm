@@ -6,7 +6,7 @@
 #define RW RC6
 #define RS RC5
 
-LCD_display(char *str)
+void LCD_display(char *str)
 {
     LCD_command(LCD_CLEAR);
     LCD_display(str);

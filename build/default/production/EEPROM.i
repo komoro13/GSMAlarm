@@ -1,4 +1,4 @@
-# 1 "LCD.c"
+# 1 "EEPROM.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 285 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "LCD.c" 2
+# 1 "EEPROM.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1895,88 +1895,96 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 2 3
-# 2 "LCD.c" 2
-# 1 "./LCD.h" 1
-# 21 "./LCD.h"
-void LCD_command(unsigned char cmd);
-void LCD_write_char(unsigned char ch);
-void LCD_Write_String(char* Str);
-void LCD_Set_Cursor(unsigned char ROW, unsigned char COL);
-void LCD_init();
-void LCD_display(char *str);
-# 3 "LCD.c" 2
-# 1 "./config.h" 1
-# 13 "./config.h"
-#pragma config FOSC = HS
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CP = OFF
-# 4 "LCD.c" 2
+# 2 "EEPROM.c" 2
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
+# 421 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 26 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 2 3
+
+void *memcpy (void *restrict, const void *restrict, size_t);
+void *memmove (void *, const void *, size_t);
+void *memset (void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void *memchr (const void *, int, size_t);
+
+char *strcpy (char *restrict, const char *restrict);
+char *strncpy (char *restrict, const char *restrict, size_t);
+
+char *strcat (char *restrict, const char *restrict);
+char *strncat (char *restrict, const char *restrict, size_t);
+
+int strcmp (const char *, const char *);
+int strncmp (const char *, const char *, size_t);
+
+int strcoll (const char *, const char *);
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+char *strchr (const char *, int);
+char *strrchr (const char *, int);
+
+size_t strcspn (const char *, const char *);
+size_t strspn (const char *, const char *);
+char *strpbrk (const char *, const char *);
+char *strstr (const char *, const char *);
+char *strtok (char *restrict, const char *restrict);
+
+size_t strlen (const char *);
+
+char *strerror (int);
 
 
 
 
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+int strerror_r (int, char *, size_t);
+char *stpcpy(char *restrict, const char *restrict);
+char *stpncpy(char *restrict, const char *restrict, size_t);
+size_t strnlen (const char *, size_t);
+char *strdup (const char *);
+char *strndup (const char *, size_t);
+char *strsignal(int);
+char *strerror_l (int, locale_t);
+int strcoll_l (const char *, const char *, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
-void LCD_display(char *str)
+
+
+
+void *memccpy (void *restrict, const void *restrict, int, size_t);
+# 3 "EEPROM.c" 2
+
+int EEPROM_Write(uint8_t data,uint8_t addr)
 {
-    LCD_command(0x01);
-    LCD_display(str);
+    while(EECON1bits.WR);
+
+    EEDATA = data;
+    EEADR = addr;
+
+    EECON1bits.EEPGD = 0;
+    EECON1bits.WREN = 1;
+
+    INTCONbits.GIE = 0;
+
+    EECON2 = 0x55;
+    EECON2 = 0xAA;
+    EECON1bits.WR = 1;
+
+    INTCONbits.GIE = 1;
+    EECON1bits.WREN = 0;
+    EECON1bits.WR = 0;
+    return 0;
 }
 
-void LCD_Write_String(char* Str)
+uint8_t EEPROM_Read(uint8_t addr)
 {
-  for(int i=0; Str[i]!='\0'; i++)
-    LCD_write_char(Str[i]);
-}
-void LCD_Set_Cursor(unsigned char ROW, unsigned char COL)
-{
-  switch(ROW)
-  {
-    case 2:
-      LCD_command(0xC0 + COL-1);
-      break;
-    case 3:
-      LCD_command(0x94 + COL-1);
-      break;
-    case 4:
-      LCD_command(0xD4 + COL-1);
-      break;
+    uint8_t data;
+    EEADR = addr;
 
-    default:
-      LCD_command(0x80 + COL-1);
-  }
-}
+    EECON1bits.EEPGD = 0;
+    EECON1bits.RD = 1;
 
-
-void LCD_command(unsigned char cmd)
-{
-    PORTB = cmd;
-    RC5 = 0;
-    RC7 = 1;
-    _delay((unsigned long)((4)*(20000000/4000.0)));
-    RC7 = 0;
-
-}
-void LCD_write_char(unsigned char ch)
-{
-    PORTB = ch;
-    RC5 = 1;
-    RC7 = 1;
-    _delay((unsigned long)((4)*(20000000/4000.0)));
-    RC7 = 0;
-
-}
-void LCD_init()
-{
-
-  _delay((unsigned long)((20)*(20000000/4000.0)));
-  LCD_command(0x38);
-  LCD_command(0x0C);
-  LCD_command(0x06);
-  LCD_command(0x01);
-  LCD_command(0x80);
+    data = EEDATA;
+    return data;
 }
